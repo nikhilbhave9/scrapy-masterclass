@@ -12,3 +12,8 @@ It is not designed to be particularly efficient. However, if there wasn't a comm
   Coming back to XPath, it can be thought of as an alternative to the CSS selectors that are used in tools like Selectolax. For example, we would have a path such as: html/body/ul/li/span \[@class="title\]\text().
 - Use downloaded cheatsheet as a resource
 - Use [XPather](http://xpather.com/) to test out XPaths
+
+## XPath Axes
+XPath aces represent relations between nodes of a tree. 
+1. /ancestor::nodename picks up all the parent nodes of the current node up to the root
+2. 
