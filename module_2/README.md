@@ -22,4 +22,4 @@ XPath aces represent relations between nodes of a tree.
 5. <b>node/following::nodename</b> This will exclude the current node but match whatever follows (from its sibling onward)
 6. <b>currnode/following-sibling::nodename</b> This will match ONLY if the matched nodes have the same parent as the current node
 7. <b>/preceding</b> same as following; for any level match. Will start from the bottom-most if multiple copies. 
-8. <b>/preceding-sibling/b> same as following-sibling; only for match with same parent.
+8. <b>/preceding-sibling</b> same as following-sibling; only for match with same parent.
