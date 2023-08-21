@@ -18,3 +18,6 @@
 - _pipeline.py_ provides options for post-processing and storage after scraping
 
 
+## More advanced features
+- .getall() instead of get() to fetch all instances of a match (especially if we are using AND operator)
+- 
