@@ -20,4 +20,4 @@
 
 ## More advanced features
 - .getall() instead of get() to fetch all instances of a match (especially if we are using AND operator)
-- 
+- Use descedant axis with /descandant::*/text() if you know which parent to access and if the parent's children are all of different types (could be small, span, etc.)
