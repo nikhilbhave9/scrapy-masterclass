@@ -1,15 +1,22 @@
 import scrapy
 from real_estate.items import RealEstateItem
 from scrapy.loader import ItemLoader
+from scrapy.spiders import CrawlSpider, Rule
+from scrapy.linkextractors import LinkExtractor
 
-class ListingsSpider(scrapy.Spider):
+class ListingsSpider(CrawlSpider):
     name = "listings"
     allowed_domains = ["arizonarealestate.com"]
     start_urls = [
-                    "https://arizonarealestate.com/maricopa/",
-                    "https://arizonarealestate.com/goodyear/",
-                    "https://arizonarealestate.com/tempe/"
+                    "https://arizonarealestate.com/",
                 ]
+    rules = (
+        Rule(
+            LinkExtractor(restrict_xpaths=('//section[@class="section-city-list"]')),
+            callback="parse",
+            follow=True
+        ),
+    )
 
     def parse(self, response):
         gallery = response.xpath('//div[@class="si-listings-column"]')
@@ -21,7 +28,12 @@ class ListingsSpider(scrapy.Spider):
             item.add_xpath('description', './/div[@class="si-listing__info"]//div[@class="si-listing__info-value"]/descendant::*/text() ')
             item.add_xpath('price', './/div[@class="si-listing__photo-price"]/span/text()')
             item.add_xpath('agency', './/div[@class="si-listing__footer"]/div/text()')
-
+            
             yield item.load_item()
         
+            next_page = response.xpath('//a[@class="js-page-link"]/@href').get()
+
+            # But on the last page, we won't get a link to the next
+            if next_page:
+                yield response.follow(next_page,callback=self.parse)
     

@@ -21,3 +21,12 @@
 ## More advanced features
 - .getall() instead of get() to fetch all instances of a match (especially if we are using AND operator)
 - Use descedant axis with /descandant::*/text() if you know which parent to access and if the parent's children are all of different types (could be small, span, etc.)
+
+## Item Loaders 
+- Instead of writing the data processing logic inside our spider code, we can seprate concerns according to function
+- Firstly, we can clean up the XPaths by separating them instead of piping them together 
+- Secondly, we can go to items.py and write logic for input_processing and output_processing and feed them as parameters to each item 
+
+## Pagination and Automatic Link crawling 
+- We can handle pagination by writing an XPath query that handles the next page link 
+- We can also write a "Rule" to define which sub-links (possibly all) we can the crawler to handle. For this, we change from our base spider to CrawlSpider (which inherits from the base spider class)
