@@ -9,3 +9,8 @@
 - User agent is a parameter in the response header. It provides information about what kind of browser is making the request
 - Many websites ban user agents that state they are from a library like Scrapy. Instead, we can use a user agent like "Mozilla ...." to pretend to be a normal browser
 - For example, we can use the following command: <b>scrapy shell -s USER_AGENT="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:105.0) Gecko/20100101 Firefox/105.0" "www.website.com"</b>
+
+## Handling Dynamically-loaded JavaScript content
+- Several websites use AJAX (Asynchronous JavaScript And XML) to dynamically render content instead of doing it all at once when the user clicks on a link
+- This poses challenges from a web scraping point-of-view, as the response coming in to our script to be parsed doesn't have the full content we need 
+- Two ways to handle this: we either use an automation tool like Microsoft Playwright or Selenium OR we bypass the HTML completely and look for the underlying API calls. Then, we replicate those calls ourselves and get well-formatted data served to us on a platter
