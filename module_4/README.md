@@ -14,3 +14,8 @@
 - Several websites use AJAX (Asynchronous JavaScript And XML) to dynamically render content instead of doing it all at once when the user clicks on a link
 - This poses challenges from a web scraping point-of-view, as the response coming in to our script to be parsed doesn't have the full content we need 
 - Two ways to handle this: we either use an automation tool like Microsoft Playwright or Selenium OR we bypass the HTML completely and look for the underlying API calls. Then, we replicate those calls ourselves and get well-formatted data served to us on a platter
+
+## Caching
+- We can turn on HTTP Caching in settings.py
+- This improves performance in case we are repeatedly scraping the same URL(s)
+- Keep in mind that the storage can run out very fast if caching is kept unchecked
