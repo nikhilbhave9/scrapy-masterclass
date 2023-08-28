@@ -19,3 +19,5 @@
 - We can turn on HTTP Caching in settings.py
 - This improves performance in case we are repeatedly scraping the same URL(s)
 - Keep in mind that the storage can run out very fast if caching is kept unchecked
+
+## Image Harvesting
